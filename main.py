@@ -32,7 +32,6 @@ import time
 #                   Your Code Goes Below                #
  
 
-darty = turtle.Turtle()
 
 def setUpDartboard(myscreen=None, myturtle=None):
   myscreen.setworldcoordinates(-1,-1, 1, 1)
@@ -46,7 +45,7 @@ def setUpDartboard(myscreen=None, myturtle=None):
       myturtle.right(90)
     myturtle.up()
   
-  drawSquare(darty, 2, -1, 1)
+  drawSquare(myturtle, 2, -1, 1)
   
   def drawLine(myturtle=None, x_start=0, y_start=0, x_end=0, y_end=0):
     myturtle.goto(x_start, y_start)
@@ -54,8 +53,8 @@ def setUpDartboard(myscreen=None, myturtle=None):
     myturtle.goto(x_end, y_end)
     myturtle.up()
    
-  drawLine(darty, -1, 0, 1, 0)
-  drawLine(darty, 0, -1, 0, 1 )
+  drawLine(myturtle, -1, 0, 1, 0)
+  drawLine(myturtle, 0, -1, 0, 1 )
   
   def drawCircle(myturtle=None, radius=0):
     myturtle.up()
@@ -63,7 +62,7 @@ def setUpDartboard(myscreen=None, myturtle=None):
     myturtle.down()
     myturtle.circle(radius, 360, 100)
     myturtle.up()
-  drawCircle(darty, 1)
+  drawCircle(myturtle, 1)
 
 
 
@@ -97,10 +96,10 @@ def playDarts(myturtle=None):
       return False
       
   for i in range(10):
-    score_A = throwDart(darty)
-    isInCircle(darty, 0,0,1)
-    score_B = throwDart(darty)
-    isInCircle(darty, 0,0,1)
+    score_A = throwDart(myturtle)
+    isInCircle(myturtle, 0,0,1)
+    score_B = throwDart(myturtle)
+    isInCircle(myturtle, 0,0,1)
 
   if score_A > score_B:
     print("player A has won")
