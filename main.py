@@ -26,7 +26,6 @@ Functions you must implement:
 '''
 import turtle
 import random
-import time
 
 #########################################################
 #                   Your Code Goes Below                #
@@ -66,44 +65,43 @@ def setUpDartboard(myscreen=None, myturtle=None):
 
 
 
-
+def isInCircle(myturtle=None, circle_center_x=0, circle_center_y=0, radius=0):
+  distance = myturtle.distance(circle_center_x, circle_center_y)
+  if distance <= radius:
+    return True
+  else:
+    return False
+    
 def throwDart(myturtle=None):
     myturtle.up()
     random_x = random.uniform(-1,1)
     random_y = random.uniform(-1,1)
     myturtle.goto(random_x, random_y)
-    distance = myturtle.distance(0,0)
-    score = 0
-    if distance <= 1:
+    if isInCircle(myturtle, 0, 0, 1) is True:
       myturtle.dot(10, "red")
-      score = score + 1
     else:
       myturtle.dot(10, "blue")
+  
+
       
-    return score
-
-
 
     
 def playDarts(myturtle=None):
-  score_A = 0
-  score_B = 0
-  def isInCircle(myturtle=None, circle_center_x=0, circle_center_y=0, radius=0):
-    distance = myturtle.distance(circle_center_x, circle_center_y)
-    if distance <= radius:
-      return True
-    else:
-      return False
-      
+  score_a = 0
+  score_b = 0
+ 
   for i in range(10):
-    score_A = throwDart(myturtle)
-    isInCircle(myturtle, 0,0,1)
-    score_B = throwDart(myturtle)
-    isInCircle(myturtle, 0,0,1)
+    throwDart(myturtle)
+    if isInCircle(myturtle, 0,0,1) is True:
+      score_a = score_a + 1
+      
+    throwDart(myturtle)
+    if isInCircle(myturtle, 0,0,1) is True:
+      score_b = score_b + 1
 
-  if score_A > score_B:
+  if score_a > score_b:
     print("player A has won")
-  elif score_A < score_B:
+  elif score_a < score_b:
     print("player B has won")
   else:
     print("the game was a tie")
@@ -117,16 +115,9 @@ def playDarts(myturtle=None):
 def montePi(myturtle=None, num_darts=0):
   inside_count=0
   for i in range(num_darts):
-    random_x = random.uniform(-1,1)
-    random_y = random.uniform(-1,1)
-    myturtle.goto(random_x, random_y)
-    distance = myturtle.distance(0,0)
-    if distance <= 1:
-      myturtle.dot(8, "red")
+    throwDart(myturtle)
+    if isInCircle(myturtle, 0, 0, 1) is True:
       inside_count = inside_count + 1
-    else:
-      myturtle.dot(8, "blue")
-      
   
   pi = inside_count / num_darts * 4
   return pi
