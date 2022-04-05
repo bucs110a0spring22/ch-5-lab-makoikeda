@@ -66,11 +66,11 @@ def playDarts(myturtle=None):
       score_b = score_b + 1
 
   if score_a > score_b:
-    print("player A has won")
+    print("Player A has won")
   elif score_a < score_b:
-    print("player B has won")
+    print("Player B has won")
   else:
-    print("the game was a tie")
+    print("The game was a tie")
       
 
     
@@ -90,14 +90,16 @@ def montePi(myturtle=None, num_darts=0):
 
 
 #midterm  
-#function that approximates pi value from calculating the sum of finite series using Leibniz formula
+#I come up with a different way to approximate pi value creating a function that calculates the sum of finite series using the knowledge of Leibniz formula
+#the leibniz infinite series converges to pi/4 = 1 - 1/3 + 1/5 - 1/7 + 1/9 -...
 
+#this function takes a number of terms and returns a pi approximation by calculating the sum of the infinite series by the n-th term.
 def piApprox(number_of_terms=0):
   sum = 0
   for i in range(1, number_of_terms):
-    if (i % 2 == 0):
+    if (i % 2 == 0): #the number of terms is even
       nth_term = - 1/(2*i - 1)
-    else:
+    else: #the number of terms is odd
       nth_term = 1/(2*i - 1)
     sum += nth_term
   
@@ -105,6 +107,8 @@ def piApprox(number_of_terms=0):
   approx_pi = sum*4
   return approx_pi
 
+
+#this function uses the values you get from the previous function as the approximation for pi, and graphs how those values are converging to pi value, and prints the closest pi approximation so far.
 def graphofpiApprox(upperbound=0, myturtle=None, myscreen=None):
   myscreen.setworldcoordinates(0,0,10,10)
   myturtle.up()
@@ -114,7 +118,7 @@ def graphofpiApprox(upperbound=0, myturtle=None, myscreen=None):
     myturtle.goto(i, piApprox(i))
     myturtle.dot(5, "blue")
     myscreen.setworldcoordinates(0,0,i, 10)
-  print("Approximation for pi: ", piApprox(upperbound))
+  print("Approximation for pi using", upperbound,"terms: ", piApprox(upperbound))
    
     
    

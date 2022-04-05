@@ -1,25 +1,23 @@
 #### CS 110
-# Chapter 5 - Lab - Selection
-
-### [Assignment Description](https://docs.google.com/document/d/1QfPsRfo1kZoQw4p0DhjxZskNfE0eLAV6Z6SgPSleDM4/edit?usp=sharing)
+# Midterm - Python Programming
 
 ***
 
 _Replace anything surrounded by the `< >` symbols._
 
 ## SUMMARY:
- I learned how to use functions through applying to calculate pi value from the simulation in which darts are thrown inside and outside of a circle randomly and calculation of the proportion of the number of the darts deliver an approximation to the value pi/4.
+What did you clean up?:
+My definition of functions for square, circle, and line were within the definition of the funciton for setupdartboard, so I moved them to outside the function for setupdartboard, and just called them inside the function for setupdartboard.
+Summary of function(s) added:
+I added two functions. The first one takes number of terms as its input, and returns the approximation for pi value. I used the knowledge that infinite series of Leibniz sequence converges to pi/4. The second function takes an upperbound for the range in which the approximation for pi in each number of term is produced, and graphs those using turtle module and prints the closest pi approximation so far.
 
-## GRACE DAYS
-Grace days used for this assignment: 0
-
-Grace days remaining: 4/5
+Summary of Feature Added:
+As explained in the summary of function, I added a feature in which pi is being approximated using a different way of approximation. With this feature, you can get the closest pi value approximation with your input of number of terms, and the graph which shows how those values are convering to pi value as the number of terms increases. 
 
 ## KNOWN BUGS AND INCOMPLETE PARTS:
  N/A
 
 ## REFERENCES:
  N/A
-
 ## MISCELLANEOUS COMMENTS:
  N/A
